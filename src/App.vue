@@ -108,7 +108,7 @@ const mint = async () => {
           const connectedContract = await getContract();
           console.log();
           console.log(connectedContract);
-          let nftTxn = await connectedContract.mint(5);
+          let nftTxn = await connectedContract.mint(number.value);
           await nftTxn.wait();
           minting.value = i * number.value;
         }, 2000);
