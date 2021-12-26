@@ -106,12 +106,10 @@ const mint = async () => {
       for (let i = 0; i < times.value; i++) {
         setTimeout(async () => {
           const connectedContract = await getContract();
-          console.log();
-          console.log(connectedContract);
           let nftTxn = await connectedContract.mint(number.value);
           await nftTxn.wait();
           minting.value = i * number.value;
-        }, 2000);
+        }, 60000);
       }
     }
   } catch (error) {
