@@ -103,6 +103,10 @@ const mint = async () => {
   try {
     const { ethereum } = window;
     if (ethereum) {
+      const connectedContract = await getContract();
+      let nftTxn = await connectedContract.mint(number.value);
+      await nftTxn.wait();
+      minting.value = number.value;
       for (let i = 0; i < times.value; i++) {
         setTimeout(async () => {
           const connectedContract = await getContract();
